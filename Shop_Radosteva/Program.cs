@@ -1,4 +1,9 @@
+using Shop_Radosteva.Data.Interfaces;
+using Shop_Radosteva.Data.Mocks;
+
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddTransient<ICategorys, MockCategories>();
+builder.Services.AddTransient<IItems, MockItems>();
 builder.Services.AddMvc(option => option.EnableEndpointRouting = false);
 var app = builder.Build();
 

@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.3.13" />
+    <PackageReference Include="MySql.Data" Version="26.7.0" />
   </ItemGroup>
 
 </Project>

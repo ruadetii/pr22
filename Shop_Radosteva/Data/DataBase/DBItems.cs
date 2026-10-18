@@ -31,5 +31,23 @@ namespace Shop_Radosteva.Data.DataBase
                 return items;
             }
         }
+
+        public int Add(Items Item)
+        {
+            MySqlConnection connection = Connection.OpenConnection();
+            Connection.Query($"INSERT INTO `Items` (`Name`, `Description`, `Img`, `Price`, `IdCategory`) VALUES ('{Item.Name}', '{Item.Description}', '{Item.Img}', {Item.Price}, {Item.Category.Id});", connection);
+            Connection.CloseConnection(connection);
+
+            int IdItem = -1;
+            connection = Connection.OpenConnection();
+            MySqlDataReader data = Connection.Query($"SELECT `Id` FROM `Items` WHERE `Name` = '{Item.Name}' AND `Description` = '{Item.Description}' AND `Price` = {Item.Price} AND `IdCategory` = {Item.Category.Id};", connection);
+            if (data.HasRows) 
+            {
+                data.Read();
+                IdItem = data.GetInt32(0);
+            }
+            Connection.CloseConnection(connection);
+            return IdItem;
+        }
     }
 }

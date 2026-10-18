@@ -48,5 +48,10 @@ namespace Shop_Radosteva.Data.Mocks
                 };
             }    
         }
+
+        public int Add(Items Item)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

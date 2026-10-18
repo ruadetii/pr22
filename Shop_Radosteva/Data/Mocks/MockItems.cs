@@ -53,5 +53,15 @@ namespace Shop_Radosteva.Data.Mocks
         {
             throw new NotImplementedException();
         }
+
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Items item)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

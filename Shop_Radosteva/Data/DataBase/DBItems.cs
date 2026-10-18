@@ -49,5 +49,19 @@ namespace Shop_Radosteva.Data.DataBase
             Connection.CloseConnection(connection);
             return IdItem;
         }
+
+        public void Update(Items Item)
+        {
+            MySqlConnection connection = Connection.OpenConnection();
+            Connection.Query($"UPDATE `Items` SET `Name` = '{Item.Name}', `Description` = '{Item.Description}', `Img` = '{Item.Img}', `Price` = {Item.Price}, `IdCategory` = {Item.Category.Id} WHERE `Id` = {Item.Id};", connection);
+            Connection.CloseConnection(connection);
+        }
+
+        public void Delete(int id)
+        {
+            MySqlConnection connection = Connection.OpenConnection();
+            Connection.Query($"DELETE FROM `Items` WHERE `Id` = {id}", connection);
+            Connection.CloseConnection(connection);
+        }
     }
 }

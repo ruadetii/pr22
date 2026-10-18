@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Shop_Radosteva.Data.Interfaces;
+using Shop_Radosteva.Data.Models;
 using Shop_Radosteva.Data.ViewModell;
 
 namespace Shop_Radosteva.Controllers
@@ -24,6 +25,14 @@ namespace Shop_Radosteva.Controllers
             VMItems.Categories = IAllCategories.AllCategories;
             VMItems.SelectCategory = id;
             return View(VMItems);
+        }
+
+        [HttpGet]
+        public ViewResult Add() 
+        {
+            IEnumerable<Categories> Categories = IAllCategories.AllCategories;
+
+            return View(Categories);
         }
     }
 }

@@ -19,11 +19,11 @@ namespace Shop_Radosteva.Data.DataBase
                     categories.Add(new Categories() 
                     {
                         Id = data.IsDBNull(0) ? -1 : data.GetInt32(0),
-                        Name = data.IsDBNull(1) ? null : data.GetString(1),
-                        Description = data.IsDBNull(2) ? null : data.GetString(2)
+                        Name = data.IsDBNull(1) ? "" : data.GetString(1),
+                        Description = data.IsDBNull(2) ? "" : data.GetString(2)
                     });
                 }
-
+                Connection.CloseConnection(connection);
                 return categories;
             }
         }

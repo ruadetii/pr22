@@ -1,5 +1,6 @@
 using Shop_Radosteva.Data.DataBase;
 using Shop_Radosteva.Data.Interfaces;
+using Shop_Radosteva.Data.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddTransient<ICategorys, DBCategory>();
@@ -12,3 +13,8 @@ app.UseStatusCodePages();
 app.UseStaticFiles();
 app.UseMvcWithDefaultRoute();
 app.Run();
+
+public partial class Program
+{
+    public static List<ItemsBasket> BasketItem = new List<ItemsBasket>();
+}
